@@ -14,3 +14,20 @@ class Event(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     location = models.CharField(max_length=30)
+
+
+class UserGroup(models.Model):
+    Student = 'st'
+    StudentLeader = 'sl'
+    Teacher = 'te'
+
+    GroupChoices = (
+        (Student, 'Student'),
+        (StudentLeader, 'Student Leader'),
+        (Teacher, 'Teacher'),
+    )
+    GroupSelected = models.CharField(
+        max_length=2,
+        choices=GroupChoices,
+        default=Student,
+    )
